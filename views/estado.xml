@@ -34,7 +34,7 @@
         </form>
     </field>
 </record>
-</odoo>
+
 
 <menuitem
     id="menu_top_estado"
@@ -61,4 +61,4 @@
     res_model="estadopago"  />
 
 
-
+</odoo>
