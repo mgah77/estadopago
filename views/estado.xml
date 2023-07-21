@@ -1,20 +1,11 @@
 <odoo>
 
-
 <record id="sequence_estado" model="ir.sequence">
     <field name="name">Seq_estado</field>
     <field name="code">pre.estado</field>
     <field name="prefix">Informe</field>
     <field name="padding">4</field>
     <field name="company_id" eval="False" />
-</record>
-
-<record id="action_estadopago" model="ir.actions.act_window">
-    <field name="name">Estados</field>
-    <field name="res_model">estadopago</field>
-    <field name="type">ir.action.act_window</field>
-    <field name="view_type">form</field>
-    <field name="view_mode">form</field>
 </record>
 
 <record id="estadopago_form" model="ir.ui.view">
@@ -36,6 +27,16 @@
         </form>
     </field>
 </record>
+
+<record id="action_estadopago" model="ir.actions.act_window">
+    <field name="name">Estados</field>
+    <field name="res_model">estadopago</field>
+    <field name="type">ir.action.act_window</field>
+    <field name="view_type">form</field>
+    <field name="view_mode">form</field>
+</record>
+
+
 
 
 <menuitem
