@@ -9,7 +9,7 @@
 </record>
 
 <record id="estadopago_form" model="ir.ui.view">
-    <field name="name">estadopago.form</field>
+    <field name="name">estado_form</field>
     <field name="res_model">estadopago</field>
     <field name="arch" type="xml">
         <form string="Estado de pagos">
