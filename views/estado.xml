@@ -1,4 +1,12 @@
 <odoo>
+<record id="action_estadopago" model="ir.action.act_window">
+    <field name="name">Estado de pago Clientes</field>
+    <field name="res_model">Estado_pago</field>
+    <field name="view_type">form</field>
+    <field name="view_mode">form</field>
+    <field name="name">Estado de pago Clientes</field>
+</record>
+
 <menuitem
     id="menu_top_estado"
     parent=""
@@ -15,13 +23,6 @@
     <field name="company_id" eval="False" />
 </record>
 
-<record id="action_estadopago" model="ir.action.act_window">
-    <field name="name">Estado de pago Clientes</field>
-    <field name="res_model">Estado_pago</field>
-    <field name="view_type">form</field>
-    <field name="view_mode">form</field>
-    <field name="name">Estado de pago Clientes</field>
-</record>
 <record id="estadopago_form" model="ir.ui.view">
     <field name="name">estadopago.form</field>
     <field name="res_model">Estado_pago</field>
