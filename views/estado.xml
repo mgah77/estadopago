@@ -7,14 +7,6 @@
     <field name="name">Estado de pago Clientes</field>
 </record>
 
-<menuitem
-    id="menu_top_estado"
-    parent=""
-    name="Estados de pago"
-    groups="estadopago.group_addon_estadopago"
-    sequence="9"
-    action="action_estadopago"
-/>
 <record id="sequence_estado" model="ir.sequence">
     <field name="name">Seq_estado</field>
     <field name="code">pre.estado</field>
@@ -43,3 +35,30 @@
     </field>
 </record>
 </odoo>
+
+<menuitem
+    id="menu_top_estado"
+    parent=""
+    name="Estados de pago"
+    groups="estadopago.group_addon_estadopago"
+    sequence="9"
+/>
+
+<menuitem
+    id="menu_estado"
+    parent="menu_top_estado"
+    name="Busqueda"
+    groups="estadopago.group_addon_estadopago"
+    action="action_estadopago"
+    sequence="19"
+/>
+
+
+
+<act_window
+    id="action_estado"
+    name="Estados"
+    res_model="estadopago"  />
+
+
+
