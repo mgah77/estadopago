@@ -41,7 +41,7 @@
     parent=""
     name="Estados de pago"
     groups="estadopago.group_addon_estadopago"
-    sequence="9"
+    sequence="8"
 />
 
 <menuitem
@@ -49,8 +49,8 @@
     parent="menu_top_estado"
     name="Busqueda"
     groups="estadopago.group_addon_estadopago"
-    action="action_estadopago"
-    sequence="19"
+    action="action_estado"
+    sequence="18"
 />
 
 
