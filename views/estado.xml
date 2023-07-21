@@ -1,7 +1,8 @@
 <odoo>
 <record id="action_estadopago" model="ir.action.act_window">
-    <field name="name">Estado de pago Clientes</field>
+    <field name="name">Estados</field>
     <field name="res_model">estadopago</field>
+    <field name="type">ir.action.act_window</field>
     <field name="view_type">form</field>
     <field name="view_mode">form</field>
 </record>
