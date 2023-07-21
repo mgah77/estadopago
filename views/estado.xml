@@ -1,7 +1,7 @@
 <odoo>
 <record id="action_estadopago" model="ir.action.act_window">
     <field name="name">Estado de pago Clientes</field>
-    <field name="res_model">Estado_pago</field>
+    <field name="res_model">estadopago</field>
     <field name="view_type">form</field>
     <field name="view_mode">form</field>
     <field name="name">Estado de pago Clientes</field>
@@ -25,7 +25,7 @@
 
 <record id="estadopago_form" model="ir.ui.view">
     <field name="name">estadopago.form</field>
-    <field name="res_model">Estado_pago</field>
+    <field name="res_model">estadopago</field>
     <field name="arch" type="xml">
         <form string="Estado de pagos">
             <header>
