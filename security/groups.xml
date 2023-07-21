@@ -1,0 +1,6 @@
+<odoo>
+    <record id="group_addon_estadopago" model="res.groups">
+	     <field name="name">ADM estado pago clientes</field>
+       <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+</odoo>
