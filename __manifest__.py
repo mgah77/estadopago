@@ -8,7 +8,6 @@
 
     Estado de pago de clientes
 
-
        """,
     'author' : 'M.Gah',
     'website': '',
