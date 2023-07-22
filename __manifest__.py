@@ -19,6 +19,6 @@
             'security/groups.xml',
             'security/ir.model.access.csv',
             'views/menu_estado.xml',
-            'wizards/estado.xml'
+            'wizard/estado.xml'
             ],
 }
