@@ -1,0 +1,19 @@
+<odoo>
+<menuitem
+    id="menu_top_estado"
+    parent=""
+    name="Estados de pago"
+    groups="estadopago.group_addon_estadopago"
+    sequence="8"
+/>
+
+<menuitem
+    id="menu_estado"
+    parent="menu_top_estado"
+    name="Busqueda"
+    groups="estadopago.group_addon_estadopago"
+    sequence="18"
+/>
+
+
+</odoo>

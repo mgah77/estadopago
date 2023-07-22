@@ -19,6 +19,7 @@
     'data': [
             'security/groups.xml',
             'security/ir.model.access.csv',
-            'views/estado.xml',
+            'views/menu_estado.xml',
+            'wizards/estado.xml'
             ],
 }
