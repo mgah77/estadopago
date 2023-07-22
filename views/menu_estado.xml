@@ -17,6 +17,6 @@
 <act_window
     id="action_estado"
     name="Estados"
-    res_model="estadopago />"
+    res_model="estadopago" />
 
 </odoo>
