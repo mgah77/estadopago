@@ -14,6 +14,9 @@
     groups="estadopago.group_addon_estadopago"
     sequence="18"
 />
-
+<act_window
+    id="action_estado"
+    name="Estados"
+    res_model="estadopago />"
 
 </odoo>
