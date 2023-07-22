@@ -4,22 +4,13 @@
     parent=""
     name="Estados de pago"
     groups="estadopago.group_addon_estadopago"
+    action="action_estado"
     sequence="8"
 />
 
-<menuitem
-    id="menu_estado"
-    parent="menu_top_estado"
-    name="Busqueda"
-    groups="estadopago.group_addon_estadopago"
-    action="action_estado"
-    sequence="18"
-/>
 <act_window
     id="action_estado"
     name="Estados"
     res_model="estadopago" />
-
-
 
 </odoo>
