@@ -12,9 +12,8 @@
                 <group>
                     <group>
                         <div>
-                            <label for="name" />
-                            
-                            </div> 
+                            <label for="name" />                            
+                        </div> 
                     </group>
                     <group>
                     </group>
@@ -22,7 +21,8 @@
             </sheet>            
         </form>  
     </field>
-    </record>  
+</record>  
+
 <menuitem
     id="menu_top_estado"
     parent=""
