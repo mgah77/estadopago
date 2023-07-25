@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <template id="report_payment_document">
+    <template id="payment_document">
         <t t-call="web.internal_layout">
           <style>
                     .table{
