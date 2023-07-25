@@ -1,24 +1,19 @@
+# -*- coding: utf-8 -*-
 {
-    'name':'Addon Estado de Pagos',
-    'version':'1.0',
-    'category':'General',
-    'summary': '',
-    'description': """
-    Addon
-
-    Estado de pago de clientes
-
-       """,
-    'author' : 'M.Gah',
+    'name': 'Payment Report Wizard',
+    'version': '1.0',
+    'category': 'Accounting',
+    'summary': 'print pdf report of payment for a particular date',
     'website': '',
-    'installable': True,
-    'auto_install': False,
-    'application': True,
-    'depends': ['base','sale','account'],
+    'author': 'Techjones',
+    'depends': ['account'],
     'data': [
-            'security/groups.xml',
-            'security/ir.model.access.csv',
-            'views/menu_estado.xml',
-            'wizard/estado.xml'
-            ],
+        'security/ir.model.access.csv',
+        'wizard/payment_report_wizard_view.xml',
+        'report/report_payment.xml',
+        'report/report_action.xml',
+    ],
+    'installable': True,
+    'application': True,
+    'auto_install': False,
 }

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- QWeb Reports -->
+    <report
+        id="action_payment_report"
+        model="payment.report.wizard"
+        string="Reporte de Caja"
+        report_type="qweb-pdf"
+        name="tj_payment_report.report_payment"
+        file="tj_payment_report.report_payment"
+        menu="False"
+    />
+</odoo>
