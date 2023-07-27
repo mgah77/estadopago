@@ -16,4 +16,4 @@ class PaymentWizard(models.Model):
         data['model'] = self.env.context.get('active_model', 'payment.wizard')
         data['date'] = self.date
 
-        return self.env.ref('tj_payment_report.action_payment_report').report_action(self, data=data)
+        return self.env.ref('payment_report.action_payment_report').report_action(self, data=data)
