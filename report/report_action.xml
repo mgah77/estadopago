@@ -6,8 +6,8 @@
         model="payment.wizard"
         string="Reporte de Caja"
         report_type="qweb-pdf"
-        name="report.report_payment"
-        file="report.report_payment"
+        name="payment_report.report_payment"
+        file="payment_report.report_payment"
         menu="False"
     />
 </odoo>

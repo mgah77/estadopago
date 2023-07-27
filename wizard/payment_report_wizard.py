@@ -13,7 +13,7 @@ class PaymentWizard(models.Model):
         data = {}
         #data['form'] = v
         data['ids'] = self.env.context.get('active_ids', [])
-        data['model'] = self.env.context.get('active_model', 'payment.report.wizard')
+        data['model'] = self.env.context.get('active_model', 'payment.wizard')
         data['date'] = self.date
 
         return self.env.ref('tj_payment_report.action_payment_report').report_action(self, data=data)

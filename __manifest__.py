@@ -6,10 +6,10 @@
     'summary': 'print pdf report of payment for a particular date',
     'website': '',
     'author': 'mgah',
-    'depends': ['base','account'],
+    'depends': ['account'],
     'data': [
         'security/ir.model.access.csv',
-        'wizard/payment_wizard_view.xml',
+        'wizard/payment_report_wizard_view.xml',
         'report/report_payment.xml',
         'report/report_action.xml',
     ],

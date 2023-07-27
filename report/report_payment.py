@@ -10,8 +10,8 @@ from datetime import timedelta, datetime
 _logger = logging.getLogger(__name__)
 
 
-class Payment(models.AbstractModel):
-	_name = 'report.report_payment'
+class ReportPayment(models.AbstractModel):
+	_name = 'report.payment_report.report_payment'
 	_description = 'Payment Report'
 
 	@api.model
