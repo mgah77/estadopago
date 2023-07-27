@@ -20,10 +20,12 @@
         </field>
     </record>
 
-    <act_window id="action_report_payment" name="Reporte de Caja"
+    <act_window id="action_report_payment" name="Estados de Pago"
             res_model="payment.wizard"
             view_mode="form" target="new" view_type="form" />
 
-    <menuitem id="payment_report_menu" parent="account.account_reports_management_menu"
-        action="action_report_payment"/>
+    <menuitem id="payment_report_menu"
+              parent=""
+              action="action_report_payment"/>
+
 </odoo>
