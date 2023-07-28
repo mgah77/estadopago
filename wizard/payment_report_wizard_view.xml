@@ -6,13 +6,12 @@
         <field name="arch" type="xml">
             <form>
                 <group>
-                    <group>
+
                         <field name="cliente"/>
                         <field name="fac_vencido"/>
                         <field name="vencido"/>
-                    </group>
-                    <group>
-                    </group>
+
+                    
                 </group>
                 <footer>
                     <button string="Imprimir" name="action_print_report" type="object" default_focus="1" class="btn-primary"/>
