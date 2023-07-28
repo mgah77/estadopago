@@ -31,7 +31,7 @@ class PaymentWizard(models.Model):
         Invoice = self.env['account.invoice']
         for record in self:
             if record.cliente:
-                fac_vencido = Invoice.search_count([('partner_id', '=', record.cliente.id)])
+                fac_vencido = Invoice.search_count([('partner_id', '=', record.cliente.id),('type', '=', 'out_invoice')])
                 record.fac_vencido = fac_vencido
             else:
                 record.fac_vencido = 0
