@@ -18,7 +18,6 @@ class PaymentWizard(models.Model):
             result.append((partner.id, name))
         return result
 
-
     def action_print_report(self):
         data = {}
         #data['form'] = v
@@ -28,8 +27,8 @@ class PaymentWizard(models.Model):
         data['cliente'] = self.cliente
         return self.env.ref('payment_report.action_payment_report').report_action(self, data=data)
 
-    @api.depends('cliente')
-    def _compute_cantidad_vencida(self):
+    #@api.depends('cliente')
+    #def _compute_cantidad_vencida('cliente'):
     #    Invoice = self.env['account.invoice']
     #    for record in self:
     #        if record.cliente:
