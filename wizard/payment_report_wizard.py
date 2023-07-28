@@ -1,8 +1,6 @@
 
 from odoo import models, fields, api
 
-
-
 class PaymentWizard(models.Model):
     _name = "payment.wizard"
     _inherit = 'res.partner'
@@ -28,12 +26,12 @@ class PaymentWizard(models.Model):
         data['fac_vencido'] = self.cliente
         return self.env.ref('payment_report.action_payment_report').report_action(self, data=data)
 
-    @api.depends('cliente')
-    def _compute_cantidad_vencida('cliente'):
-        Invoice = self.env['account.invoice']
-        for record in self:
-            if record.cliente:
-                fac_vencido = Invoice.search_count([('partner_id', '=', record.cliente.id)])
-                record.fac_vencido = fac_vencido
-            else:
-                record.fac_vencido = 0
+    #@api.depends('cliente')
+    #def _compute_cantidad_vencida('cliente'):
+    #    Invoice = self.env['account.invoice']
+    #    for record in self:
+    #        if record.cliente:
+    #            fac_vencido = Invoice.search_count([('partner_id', '=', record.cliente.id)])
+    #            record.fac_vencido = fac_vencido
+    #        else:
+    #            record.fac_vencido = 0
