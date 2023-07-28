@@ -8,7 +8,7 @@ class PaymentWizard(models.Model):
     _inherit = 'res.partner'
 
     date = fields.Date(default=fields.Date.today, required=True)
-    cliente = fields.Many2one('res.partner', string='Cliente')
+    cliente = fields.Many2one('res.partner', string='Cliente', domain=[('is_company', '=', True)])
 
     def name_get(self):
         result = []
