@@ -26,8 +26,8 @@ class PaymentWizard(models.Model):
         data['fac_vencido'] = self.cliente
         return self.env.ref('payment_report.action_payment_report').report_action(self, data=data)
 
-    #@api.depends('cliente')
-    #def _compute_cantidad_vencida('cliente'):
+    @api.depends('cliente')
+    def _compute_cantidad_vencida(self):
     #    Invoice = self.env['account.invoice']
     #    for record in self:
     #        if record.cliente:
