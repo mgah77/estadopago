@@ -34,7 +34,7 @@ class PaymentWizard(models.Model):
             if record.cliente:
                 fac_vencido = Invoice.search_count([('partner_id', '=', record.cliente.id),('type', '=', 'out_invoice'),('state', '=', 'open')])
                 record.fac_vencido = fac_vencido
-                total_vencido = sum(fac_vencido.mapped('amount_total'))
+                total_vencido = sum(factura.amount_total for factura in facturas_vencidas)
                 record.vencido = total_vencido
             else:
                 record.fac_vencido = 0
