@@ -9,6 +9,7 @@
                     <group>
                         <field name="cliente"/>
                         <field name="fac_vencido"/>
+                        <field name="vencido"/>
                     </group>
                     <group>
                     </group>
