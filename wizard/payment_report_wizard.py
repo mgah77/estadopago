@@ -11,7 +11,7 @@ class PaymentWizard(models.Model):
     vencido = fields.Float(string="Cantidad Vencida", compute='_compute_cantidad_vencida', digits=(16, 0))
     pre_fac_vencido = fields.Integer(string="Facturas por vencer", compute='_compute_cantidad_vencida')
     pre_vencido = fields.Float(string="Cantidad por vencer", compute='_compute_cantidad_vencida', digits=(16, 0))
-    total = fields.Float(string="Total Deuda", compute='_compute_cantidad_vencida', digits=(16, 0))
+    totales = fields.Float(string="Total Deuda", compute='_compute_cantidad_vencida', digits=(16, 0))
 
     def name_get(self):
         result = []
@@ -45,12 +45,12 @@ class PaymentWizard(models.Model):
                 total_pre_vencido = sum(factura.amount_total for factura in pre_vencido)
                 record.pre_vencido = total_pre_vencido
                 pre_total = Invoice.search([('partner_id', '=', record.cliente.id),('type', '=', 'out_invoice'),('state', '=', 'open')])
-                total = sum(factura.amount_total for factura in pre_total)
-                record.total = total
+                totales = sum(factura.amount_total for factura in pre_total)
+                record.totales = totales
             else:
                 record.fac_vencido = 0
                 record.vencido = 0
                 record.pre_fac_vencido = 0
                 record.pre_vencido = 0
-                record.total = 0
+                record.totales = 0
         return
