@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': 'Payment Report Wizard',
+    'name': 'Addon Estado Pagos',
     'version': '1.0',
     'category': 'Accounting',
     'summary': 'print pdf report of payment for a particular date',
