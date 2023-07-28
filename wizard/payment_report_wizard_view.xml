@@ -5,9 +5,11 @@
         <field name="model">payment.wizard</field>
         <field name="arch" type="xml">
             <form>
-      
-
+                <group>
+                        <label for="cliente" string="Clientes"/>
                         <field name="cliente"/>
+                </group>
+
                         <field name="fac_vencido"/>
                         <field name="vencido"/>
 
