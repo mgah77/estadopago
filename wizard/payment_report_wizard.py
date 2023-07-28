@@ -3,7 +3,6 @@ from odoo import models, fields, api
 
 class PaymentWizard(models.Model):
     _name = "payment.wizard"
-    _inherit = 'res.partner'
 
     date = fields.Date(default=fields.Date.today, required=True)
     cliente = fields.Many2one('res.partner', string='Cliente', domain=[('is_company', '=', True)])
@@ -32,9 +31,10 @@ class PaymentWizard(models.Model):
         Invoice = self.env['account.invoice']
         for record in self:
             if record.cliente:
-                facturas_vencidas = Invoice.search_count([('partner_id', '=', record.cliente.id),('type', '=', 'out_invoice'),('state', '=', 'open')])
-                total_vencido = sum(factura.amount_total for factura in facturas_vencidas)
+                fac_vencido = Invoice.search_count([('partner_id', '=', record.cliente.id),('type', '=', 'out_invoice'),('state', '=', 'open')])
                 record.fac_vencido = fac_vencido
+                vencido = Invoice.search([('partner_id', '=', record.cliente.id),('type', '=', 'out_invoice'),('state', '=', 'open')])
+                total_vencido = sum(factura.amount_total for factura in vencido)
                 record.vencido = total_vencido
             else:
                 record.fac_vencido = 0
