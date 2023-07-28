@@ -38,4 +38,5 @@ class PaymentWizard(models.Model):
                 record.vencido = total_vencido
             else:
                 record.fac_vencido = 0
+                record.vencido = 0
         return
