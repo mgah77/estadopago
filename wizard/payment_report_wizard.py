@@ -28,11 +28,11 @@ class PaymentWizard(models.Model):
 
     @api.depends('cliente')
     def _compute_cantidad_vencida(self):
+        Invoice = self.env['account.invoice']
+        for record in self:
+            if record.cliente:
+                fac_vencido = Invoice.search_count([('partner_id', '=', record.cliente.id)])
+                record.fac_vencido = fac_vencido
+            else:
+                record.fac_vencido = 0
         return
-    #    Invoice = self.env['account.invoice']
-    #    for record in self:
-    #        if record.cliente:
-    #            fac_vencido = Invoice.search_count([('partner_id', '=', record.cliente.id)])
-    #            record.fac_vencido = fac_vencido
-    #        else:
-    #            record.fac_vencido = 0
