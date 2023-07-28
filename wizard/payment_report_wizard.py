@@ -11,7 +11,7 @@ class PaymentWizard(models.Model):
     vencido = fields.Float(string="Cantidad Vencida", compute='_compute_cantidad_vencida', digits=(16, 0))
     pre_fac_vencido = fields.Integer(string="Facturas por vencer", compute='_compute_cantidad_vencida')
     pre_vencido = fields.Float(string="Cantidad por vencer", compute='_compute_cantidad_vencida', digits=(16, 0))
-    total = fields.Float(string="Total Deuda", compute='_compute_cantidad_vencida', digits=(16, 0)))
+    total = fields.Float(string="Total Deuda", compute='_compute_cantidad_vencida', digits=(16, 0))
 
     def name_get(self):
         result = []
