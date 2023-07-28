@@ -28,6 +28,7 @@ class PaymentWizard(models.Model):
 
     @api.depends('cliente')
     def _compute_cantidad_vencida(self):
+        return
     #    Invoice = self.env['account.invoice']
     #    for record in self:
     #        if record.cliente:
