@@ -6,7 +6,6 @@ from datetime import date
 class PaymentWizard(models.Model):
     _name = "payment.wizard"
 
-    today = date.today()
     cliente = fields.Many2one('res.partner', string='Cliente', domain=[('is_company', '=', True)])
     fac_vencido = fields.Integer(string="FacturasVencidas", compute='_compute_cantidad_vencida')
     vencido = fields.Float(string="Cantidad Vencida", compute='_compute_cantidad_vencida')
@@ -32,9 +31,9 @@ class PaymentWizard(models.Model):
         Invoice = self.env['account.invoice']
         for record in self:
             if record.cliente:
-                fac_vencido = Invoice.search_count([('partner_id', '=', record.cliente.id),('type', '=', 'out_invoice'),('state', '=', 'open'),('date_due', '<=', today)])
+                fac_vencido = Invoice.search_count([('partner_id', '=', record.cliente.id),('type', '=', 'out_invoice'),('state', '=', 'open'),('date_due', '<=', fields.Date.today())])
                 record.fac_vencido = fac_vencido
-                vencido = Invoice.search([('partner_id', '=', record.cliente.id),('type', '=', 'out_invoice'),('state', '=', 'open'),('date_due', '<=', today)])
+                vencido = Invoice.search([('partner_id', '=', record.cliente.id),('type', '=', 'out_invoice'),('state', '=', 'open'),('date_due', '<=', fields.Date.today())])
                 total_vencido = sum(factura.amount_total for factura in vencido)
                 record.vencido = total_vencido
             else:
