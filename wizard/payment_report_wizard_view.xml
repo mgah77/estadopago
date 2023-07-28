@@ -41,6 +41,7 @@
 
     <menuitem id="payment_report_menu"
               parent=""
+              groups="estadopago.group_addon_estadopago"
               action="action_report_payment"/>
 
 </odoo>
