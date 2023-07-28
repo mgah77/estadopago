@@ -22,8 +22,8 @@
                         <field name="pre_vencido"/>
                         <h4> </h4>
                         <h4>
-                        <label for="total" string="Total adeudado "/>
-                        <field name="pre_fac_vencido"/>
+                        <label for="totales" string="Total adeudado "/>
+                        <field name="totales"/>
                         </h4>
 
                 <footer>
