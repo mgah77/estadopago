@@ -14,6 +14,11 @@
                         <field name="fac_vencido"/>
                         <label for="vencido" string=", Valor adeudado "/>
                         <field name="vencido"/>
+                        <h4>Facturas por vencer</h4>
+                        <label for="pre_fac_vencido" string="Cantidad "/>
+                        <field name="pre_fac_vencido"/>
+                        <label for="pre_vencido" string=", Valor adeudado "/>
+                        <field name="pre_vencido"/>
 
 
 
