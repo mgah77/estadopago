@@ -6,7 +6,7 @@ from datetime import date
 class PaymentWizard(models.Model):
     _name = "payment.wizard"
 
-    cliente = fields.Many2one('res.partner', string='Cliente', domain=[('is_company', '=', True)])
+    cliente = fields.Many2one('res.partner', string='Cliente', domain=[('is_company', '=', True),('id', 'in', available_clients)]"])
     fac_vencido = fields.Integer(string="FacturasVencidas", compute='_compute_cantidad_vencida')
     vencido = fields.Float(string="Cantidad Vencida", compute='_compute_cantidad_vencida', digits=(16, 0))
     pre_fac_vencido = fields.Integer(string="Facturas por vencer", compute='_compute_cantidad_vencida')
@@ -16,7 +16,7 @@ class PaymentWizard(models.Model):
     def name_get(self):
         result = []
         for partner in self:
-            name = partner.name  # Mostrar el campo 'name' en lugar de 'display_name'
+            name = partner.name
             result.append((partner.id, name))
         return result
 
@@ -33,6 +33,13 @@ class PaymentWizard(models.Model):
     def _compute_cantidad_vencida(self):
         Invoice = self.env['account.invoice']
         for record in self:
+            facturas_abiertas = Invoice.search([('state', '=', 'open')])
+            available_clients = facturas_abiertas.mapped('partner_id.id')
+            record.available_clients = available_clients
+
+            if record.cliente and record.cliente.id not in available_clients:
+                record.cliente = False
+
             if record.cliente:
                 fac_vencido = Invoice.search_count([('partner_id', '=', record.cliente.id),('type', '=', 'out_invoice'),('state', '=', 'open'),('date_due', '<=', fields.Date.today())])
                 record.fac_vencido = fac_vencido
