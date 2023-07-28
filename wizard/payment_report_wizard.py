@@ -8,7 +8,7 @@ class PaymentWizard(models.Model):
     date = fields.Date(default=fields.Date.today, required=True)
     cliente = fields.Many2one('res.partner', string='Cliente', domain=[('is_company', '=', True)])
     fac_vencido = fields.Integer(string="FacturasVencidas", compute='_compute_cantidad_vencida')
-    vencido = fields.Float(string="Cantidad Vencida", compute='_compute_vencido')
+    vencido = fields.Float(string="Cantidad Vencida", compute='_compute_cantidad_vencida')
 
     def name_get(self):
         result = []
@@ -32,9 +32,9 @@ class PaymentWizard(models.Model):
         Invoice = self.env['account.invoice']
         for record in self:
             if record.cliente:
-                fac_vencido = Invoice.search_count([('partner_id', '=', record.cliente.id),('type', '=', 'out_invoice'),('state', '=', 'open')])
+                facturas_vencidas = Invoice.search_count([('partner_id', '=', record.cliente.id),('type', '=', 'out_invoice'),('state', '=', 'open')])
+                total_vencido = sum(factura.amount_total for factura in facturas_vencidas)
                 record.fac_vencido = fac_vencido
-                total_vencido = sum(factura.amount_total for factura in fac_vencido)
                 record.vencido = total_vencido
             else:
                 record.fac_vencido = 0
