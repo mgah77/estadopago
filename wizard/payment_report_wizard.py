@@ -11,6 +11,7 @@ class PaymentWizard(models.Model):
     cliente = fields.Many2one('res.partner', string='Cliente', domain=[('is_company', '=', True)])
     fac_vencido = fields.Integer(string="FacturasVencidas", compute='_compute_cantidad_vencida')
 
+    @api.model
     def name_get(self):
         result = []
         for partner in self:
