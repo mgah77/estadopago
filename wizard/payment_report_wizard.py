@@ -1,5 +1,5 @@
 
-from odoo import models, fields
+from odoo import models, fields, api
 
 
 
@@ -11,7 +11,6 @@ class PaymentWizard(models.Model):
     cliente = fields.Many2one('res.partner', string='Cliente', domain=[('is_company', '=', True)])
     fac_vencido = fields.Integer(string="FacturasVencidas", compute='_compute_cantidad_vencida')
 
-    @api.model
     def name_get(self):
         result = []
         for partner in self:
@@ -26,14 +25,15 @@ class PaymentWizard(models.Model):
         data['model'] = self.env.context.get('active_model', 'payment.wizard')
         data['date'] = self.date
         data['cliente'] = self.cliente
+        data['fac_vencido'] = self.cliente
         return self.env.ref('payment_report.action_payment_report').report_action(self, data=data)
 
-    #@api.depends('cliente')
-    #def _compute_cantidad_vencida('cliente'):
-    #    Invoice = self.env['account.invoice']
-    #    for record in self:
-    #        if record.cliente:
-    #            fac_vencido = Invoice.search_count([('partner_id', '=', record.cliente.id)])
-    #            record.fac_vencido = fac_vencido
-    #        else:
-    #            record.fac_vencido = 0
+    @api.depends('cliente')
+    def _compute_cantidad_vencida('cliente'):
+        Invoice = self.env['account.invoice']
+        for record in self:
+            if record.cliente:
+                fac_vencido = Invoice.search_count([('partner_id', '=', record.cliente.id)])
+                record.fac_vencido = fac_vencido
+            else:
+                record.fac_vencido = 0
