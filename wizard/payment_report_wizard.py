@@ -5,9 +5,18 @@ from odoo import models, fields
 
 class PaymentWizard(models.Model):
     _name = "payment.wizard"
+    _inherit = 'res.partner'
 
     date = fields.Date(default=fields.Date.today, required=True)
     cliente = fields.Many2one('res.partner', string='Cliente')
+
+    def name_get(self):
+        result = []
+        for partner in self:
+            name = partner.name  # Mostrar el campo 'name' en lugar de 'display_name'
+            result.append((partner.id, name))
+        return result
+
 
     def action_print_report(self):
         data = {}
