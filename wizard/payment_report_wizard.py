@@ -6,7 +6,7 @@ from datetime import date
 class PaymentWizard(models.Model):
     _name = "payment.wizard"
 
-    cliente = fields.Many2one('res.partner', string='Cliente', domain=[('is_company', '=', True)]"])
+    cliente = fields.Many2one('res.partner', string='Cliente', domain=[('is_company', '=', True)])
     fac_vencido = fields.Integer(string="FacturasVencidas", compute='_compute_cantidad_vencida')
     vencido = fields.Float(string="Cantidad Vencida", compute='_compute_cantidad_vencida', digits=(16, 0))
     pre_fac_vencido = fields.Integer(string="Facturas por vencer", compute='_compute_cantidad_vencida')
