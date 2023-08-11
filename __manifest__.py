@@ -10,9 +10,9 @@
     'data': [
         'security/ir.model.access.csv',
         'security/groups.xml',
-        'wizard/payment_report_wizard_view.xml',
-        'report/report_payment.xml',
         'report/report_action.xml',
+        'wizard/payment_report_wizard_view.xml',
+        'report/report_payment.xml',        
     ],
     'installable': True,
     'application': True,
