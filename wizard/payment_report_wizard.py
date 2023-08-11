@@ -13,13 +13,6 @@ class PaymentWizard(models.Model):
     pre_vencido = fields.Float(string="Cantidad por vencer", compute='_compute_cantidad_vencida', digits=(16, 0))
     totales = fields.Float(string="Total Deuda", compute='_compute_cantidad_vencida', digits=(16, 0))
 
-    def name_get(self):
-        result = []
-        for partner in self:
-            name = partner.name
-            result.append((partner.id, name))
-        return result
-
     def action_print_report(self):
         data = {}
         #data['form'] = v
