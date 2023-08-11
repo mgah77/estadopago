@@ -20,7 +20,7 @@ class PaymentWizard(models.Model):
         data['model'] = self.env.context.get('active_model', 'payment.wizard')
         data['cliente'] = self.cliente
         data['fac_vencido'] = self.cliente
-        return self.env.ref('payment_report.action_payment_report').report_action(self, data=data)
+        return self.env.ref('estadopago.action_payment_report').report_action(self, data=data)
 
     @api.depends('cliente')
     def _compute_cantidad_vencida(self):
