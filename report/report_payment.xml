@@ -247,10 +247,10 @@
         </t>
     </template>
 
-    <template id="report_payment">
+    <template id="estado_pago">
         <t t-call="web.html_container">
             <t t-foreach="docs" t-as="o">
-                <t t-call="payment_report.report_payment_document"/>
+                <t t-call="estadopago.report_payment_document"/>
             </t>
         </t>
     </template>
