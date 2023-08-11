@@ -21,7 +21,6 @@ class ReportEstadoPago(models.AbstractModel):
 		docs = self.env[model].browse(self.env.context.get('active_id'))
 
 		selected_date = data.get("date")
-		selected_date = datetime.strptime(selected_date, "%Y-%m-%d").date()
 
 		payments = self.env["account.payment"].search([("payment_date","=",selected_date)])
 		t_payments = payments.filtered(lambda r: selected_date in r.reconciled_invoice_ids.mapped("date_invoice"))
