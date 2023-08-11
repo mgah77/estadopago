@@ -13,7 +13,7 @@
                         }
                     </style>
             <div class="page">
-                <h2 class="text-center">REPORTE DE CAJA</h2>
+                <h2 class="text-center">REPORTE</h2>
 
                 <div id="informations" class="row mt32 mb32">
                     <div t-if="data.get('date')" class="col-3 bm-2">
@@ -250,7 +250,7 @@
     <template id="report_payment">
         <t t-call="web.html_container">
             <t t-foreach="docs" t-as="o">
-                <t t-call="tj_payment_report.report_payment_document"/>
+                <t t-call=payment_report.report_payment_document"/>
             </t>
         </t>
     </template>
