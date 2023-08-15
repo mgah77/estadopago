@@ -22,11 +22,11 @@
                         <thead>
                             <tr>
                                 <center>
-                                <td width="100%" style="text-align: left;" colspan="2"><h3>Cliente: <span t-esc="doc.cliente.name"/></h3></td>                                
+                                <td width="100%" style="text-align: left;" colspan="3"><h3>Cliente: <span t-esc="doc.cliente.name"/></h3></td>                                
                                 </center>
                             </tr>                            
                         </thead>
-                        <br/>
+                        <br/><br/>
                         <tbody>
                             <t t-if="len(doc.facturas_in) == 0">
                                 <tr>
@@ -37,11 +37,16 @@
                                 <tr>
                                     <td>Facturas por vencer: <span t-esc="doc.pre_fac_vencido"/></td>                                
                                 </tr>
-                                <tr></tr>                          
+                                <tr></tr>  
+                                <tr>
+                                    <td>Número de Factura</td><td>Fecha de Vencimiento</td><td>Monto</td>
+                                </tr>                       
                                 <t t-foreach="doc.facturas_in" t-as="factura">
                                     <tr>
-                                        <td>Número de Factura: <span t-esc="factura.sii_document_number"/></td>
-                                        <td>Fecha de Vencimiento: <span t-esc="factura.date_due.strftime('%d-%b-%Y')"/></td>
+                                        <td>Nº: <span t-esc="factura.sii_document_number"/></td>
+                                        <td><span t-esc="factura.date_due.strftime('%d-%b-%Y')"/></td>
+                                        <td><span t-esc="factura.amount"/></td>
+
                                         <!-- Agrega más campos de la factura aquí -->
                                     </tr>
                                     <tr></tr>
