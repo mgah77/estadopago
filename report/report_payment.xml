@@ -17,10 +17,12 @@
                     <div class="page">
                         <br /><br />
                         <h1>Informe de Estado de pagos</h1>                        
-                        <table>
+                        <table width="100%">
                         <thead>
                             <tr>
+                                <center>
                                 <td>Cliente: <span t-esc="doc.cliente.name"/></td>                                
+                                </center>
                             </tr>
                         </thead>
                         <tbody>
