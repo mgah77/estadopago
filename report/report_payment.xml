@@ -40,16 +40,18 @@
                                     <td>No hay facturas vencidas</td>
                                 </tr>
                             </t>
-                            <tr>
-                                <td>Facturas vencidas: <span t-esc="doc.fac_vencido"/></td>                                
-                            </tr>              
-                            <t t-foreach="doc.facturas_out" t-as="factura">
+                            <t t-else="">
                                 <tr>
-                                    <td>Número de Factura: <span t-esc="factura.sii_document_number"/></td>
-                                    <td>Fecha de Vencimiento: <span t-esc="factura.date_due.strftime('%d-%b-%Y')"/></td>
-                                    <!-- Agrega más campos de la factura aquí -->
-                                </tr>
-                            </t>                            
+                                    <td>Facturas vencidas: <span t-esc="doc.fac_vencido"/></td>                                
+                                </tr>              
+                                <t t-foreach="doc.facturas_out" t-as="factura">
+                                    <tr>
+                                        <td>Número de Factura: <span t-esc="factura.sii_document_number"/></td>
+                                        <td>Fecha de Vencimiento: <span t-esc="factura.date_due.strftime('%d-%b-%Y')"/></td>
+                                        <!-- Agrega más campos de la factura aquí -->
+                                    </tr>
+                                </t>  
+                            </t>                          
                         </tbody>
                         </table>
                     </div>
