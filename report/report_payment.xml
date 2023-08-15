@@ -28,24 +28,6 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr t-foreach="t_payments" t-as="payment">                            
-                            <td id="td1">
-                                <span t-field="payment.partner_id.vat"/>
-                            </td>
-                        </tr>
-                        <tr t-if="t_payments">
-                            <td></td>
-                            <td></td>
-                            
-                            <td></td>
-                        </tr>
-                        <tr></tr>
-                        <tr></tr>
-                        <tr t-foreach="y_payments" t-as="payment">
-                            <td id="td1">
-                                <span t-field="payment.partner_id.vat"/>
-                            </td>
-                        </tr>
                         
                         <tr/>
                         <tr/>
@@ -64,14 +46,6 @@
                 <br/>
                 
             </div>
-        </t>
-    </template>
-
-    <template id="estado_pago">
-        <t t-call="web.html_container">
-            <t t-foreach="docs" t-as="o">
-                <t t-call="report_payment_document"/>
-            </t>
         </t>
     </template>
 </odoo>
