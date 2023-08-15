@@ -17,7 +17,7 @@
                     <div class="page">
                         <br /><br />
                         <center><h1><ins>Informe de Estado de pagos</ins></h1></center>    
-                        <br/>                    
+                                         
                         <table width="100%">
                         <thead>
                             <tr>
@@ -38,6 +38,7 @@
                                     <td>Facturas por vencer: <span t-esc="doc.pre_fac_vencido"/></td>                                
                                 </tr>
                                 <tr><td></td></tr>  
+                                <tr><td></td></tr>
                                 <tr>
                                     <td>Número de Factura</td><td>Fecha de Vencimiento</td><td>Monto</td>
                                 </tr>                       
@@ -45,7 +46,7 @@
                                     <tr>
                                         <td>Nº: <span t-esc="factura.sii_document_number"/></td>
                                         <td><span t-esc="factura.date_due.strftime('%d-%b-%Y')"/></td>
-                                        <td><span t-esc="int(factura.amount_total_signed)"/></td>
+                                        <td>$ <span t-esc="int(factura.amount_total_signed)"/></td>
 
                                         <!-- Agrega más campos de la factura aquí -->
                                     </tr>
