@@ -21,26 +21,26 @@
                         <table>
                         <p>Facturas por vencer: <span t-esc="doc.pre_fac_vencido"/></p>
                         <!-- Agrega aquí los otros campos que quieras mostrar -->
-                        <ul>
+                        
                         <t t-foreach="doc.facturas_in" t-as="factura">
                             <tr>
                                 <td>Número de Factura: <span t-esc="factura.sii_document_number"/></td>
-                                <td>Fecha de Vencimiento: <span t-esc="factura.date_due"/></td>
+                                <td>Fecha de Vencimiento: <span t-esc="factura.date_due.strftime('%d-%b-%Y')"/></td>
                                 <!-- Agrega más campos de la factura aquí -->
                             </tr>
                         </t>
-                        </ul>
+                        
                         <p>Facturas vencidas: <span t-esc="doc.fac_vencido"/></p>
                         <!-- Agrega aquí los otros campos que quieras mostrar -->
-                        <ul>
+                       
                         <t t-foreach="doc.facturas_out" t-as="factura">
                             <tr>
                                 <td>Número de Factura: <span t-esc="factura.sii_document_number"/></td>
-                                <td>Fecha de Vencimiento: <span t-esc="factura.date_due"/></td>
+                                <td>Fecha de Vencimiento: <span t-esc="factura.date_due.strftime('%d-%b-%Y')"/></td>
                                 <!-- Agrega más campos de la factura aquí -->
                             </tr>
                         </t>
-                        </ul>
+                        
                         </table>
                     </div>
                 </t>
