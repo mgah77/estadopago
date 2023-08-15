@@ -15,7 +15,8 @@
                 <t t-call="web.external_layout">
                     <!-- Contenido del informe -->
                     <div class="page">
-                        <h1>Informe de Pagos</h1>
+                        <br /><br />
+                        <h1>Informe de Estado de pagos</h1>
                         <p>Cliente: <span t-esc="doc.cliente.name"/></p>
                         <p>Facturas Vencidas: <span t-esc="doc.fac_vencido"/></p>
                         <!-- Agrega aquí los otros campos que quieras mostrar -->

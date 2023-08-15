@@ -12,6 +12,7 @@ class PaymentWizard(models.Model):
     pre_fac_vencido = fields.Integer(string="Facturas por vencer", compute='_compute_cantidad_vencida')
     pre_vencido = fields.Float(string="Cantidad por vencer", compute='_compute_cantidad_vencida', digits=(16, 0))
     totales = fields.Float(string="Total Deuda", compute='_compute_cantidad_vencida', digits=(16, 0))
+    facturas = fields.One2many('account.invoice', compute='_compute_cantidad_vencida', string="Facturas")
 
     def action_print_report(self):
         report = self.env.ref('estadopago.action_payment_report')  # Reemplaza con el nombre correcto de tu informe
@@ -36,6 +37,7 @@ class PaymentWizard(models.Model):
                 pre_total = Invoice.search([('partner_id', '=', record.cliente.id),('type', '=', 'out_invoice'),('state', '=', 'open')])
                 totales = sum(factura.amount_total for factura in pre_total)
                 record.totales = totales
+                record.facturas = Invoice.search([('partner_id', '=', record.cliente.id), ('type', '=', 'out_invoice'), ('state', '=', 'open')])
             else:
                 record.fac_vencido = 0
                 record.vencido = 0
