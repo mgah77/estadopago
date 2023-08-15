@@ -62,16 +62,21 @@
                                 <tr>
                                     <td>Facturas vencidas: <span t-esc="doc.fac_vencido"/></td>                                
                                 </tr> 
-                                <tr><td colspan="3"><br/></td></tr>             
+                                <tr><td colspan="3"><br/></td></tr>
+                                <tr>
+                                    <td>Número de Factura</td><td>Fecha de Vencimiento</td><td>Monto</td>
+                                </tr>               
                                 <t t-foreach="doc.facturas_out" t-as="factura">
                                     <tr>
-                                        <td>Número de Factura: <span t-esc="factura.sii_document_number"/></td>
-                                        <td>Fecha de Vencimiento: <span t-esc="factura.date_due.strftime('%d-%b-%Y')"/></td>
-                                        <td><span t-esc="int(factura.amount_total_signed)"/></td>
+                                        <td>Nº: <span t-esc="factura.sii_document_number"/></td>
+                                        <td> <span t-esc="factura.date_due.strftime('%d-%b-%Y')"/></td>
+                                        <td>$ <span t-esc="int(factura.amount_total_signed)"/></td>
                                         <!-- Agrega más campos de la factura aquí -->
                                     </tr>
                                 </t>  
-                            </t>                          
+                            </t> 
+                            <tr><td colspan="3"><hr/></td></tr>
+                            <tr><td></td><td><h3>Total Deuda</td><td>$<span t-esc="int(factura.totales)"/></h3></td></tr>                         
                         </tbody>
                         </table>
                     </div>
