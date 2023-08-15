@@ -32,8 +32,7 @@
                                 <tr>
                                     <td>No hay facturas por vencer</td>
                                 </tr>
-                            </t>
-                            <br/>
+                            </t>                            
                             <t t-else="">
                                 <tr>
                                     <td>Facturas por vencer: <span t-esc="doc.pre_fac_vencido"/></td>                                
