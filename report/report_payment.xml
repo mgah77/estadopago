@@ -11,6 +11,7 @@
     <data>
         <template id="report_estado_pago">
             <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
                 <t t-call="web.external_layout">
                     <!-- Contenido del informe -->
                     <div class="page">
@@ -20,6 +21,7 @@
                         <!-- Agrega aquí los otros campos que quieras mostrar -->
                     </div>
                 </t>
+            </t>
             </t>
         </template>
     </data>

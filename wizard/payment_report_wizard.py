@@ -14,7 +14,8 @@ class PaymentWizard(models.Model):
     totales = fields.Float(string="Total Deuda", compute='_compute_cantidad_vencida', digits=(16, 0))
 
     def action_print_report(self):
-        return self.env['ir.actions.report'].search([('report_name', '=', 'estadopago.report_estado_pago')], limit=1).report_action(self)
+    report = self.env.ref('estadopago.action_payment_report')  # Reemplaza con el nombre correcto de tu informe
+    return report.with_context(active_ids=self.ids, active_model=self._name).report_action(self)
 
 
     @api.depends('cliente')
