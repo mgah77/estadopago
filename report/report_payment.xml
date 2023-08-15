@@ -22,6 +22,7 @@
                 </div>
                 <table class="table">
                   <font size = "-2">
+                  <t t-foreach="docs" t-as="doc">
                     <thead>
                         <tr>
                             <td id="td1"><strong><t t-esc="doc.cliente"/></strong></td>
@@ -29,6 +30,7 @@
                             <td id="td1"><strong>RUT Cliente</strong></td>
                         </tr>
                     </thead>
+                    </t>
                     <tbody>
                         
                         <tr/>
