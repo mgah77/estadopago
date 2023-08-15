@@ -37,7 +37,7 @@
                                 <tr>
                                     <td>Facturas por vencer: <span t-esc="doc.pre_fac_vencido"/></td>                                
                                 </tr>
-                                <tr><td>&nbsp;</td></tr>  
+                                <tr><td></td></tr>  
                                 <tr>
                                     <td>Número de Factura</td><td>Fecha de Vencimiento</td><td>Monto</td>
                                 </tr>                       
