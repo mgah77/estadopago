@@ -50,7 +50,7 @@
                                     <td>Fecha de Vencimiento: <span t-esc="factura.date_due.strftime('%d-%b-%Y')"/></td>
                                     <!-- Agrega más campos de la factura aquí -->
                                 </tr>
-                            
+                            </t>
                             </t>
                         </tbody>
                         </table>
