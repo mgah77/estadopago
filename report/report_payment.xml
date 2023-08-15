@@ -37,7 +37,7 @@
                                 <tr>
                                     <td>Facturas por vencer: <span t-esc="doc.pre_fac_vencido"/></td>                                
                                 </tr>
-                                <tr></tr>  
+                                <tr><td>&nbsp</td></tr>  
                                 <tr>
                                     <td>Número de Factura</td><td>Fecha de Vencimiento</td><td>Monto</td>
                                 </tr>                       
@@ -45,7 +45,7 @@
                                     <tr>
                                         <td>Nº: <span t-esc="factura.sii_document_number"/></td>
                                         <td><span t-esc="factura.date_due.strftime('%d-%b-%Y')"/></td>
-                                        <td><span t-esc="factura.amount_total_signed"/></td>
+                                        <td><span t-esc="int(factura.amount_total_signed)"/></td>
 
                                         <!-- Agrega más campos de la factura aquí -->
                                     </tr>
@@ -66,6 +66,7 @@
                                     <tr>
                                         <td>Número de Factura: <span t-esc="factura.sii_document_number"/></td>
                                         <td>Fecha de Vencimiento: <span t-esc="factura.date_due.strftime('%d-%b-%Y')"/></td>
+                                        <td><span t-esc="int(factura.amount_total_signed)"/></td>
                                         <!-- Agrega más campos de la factura aquí -->
                                     </tr>
                                 </t>  
