@@ -16,22 +16,24 @@
                     <!-- Contenido del informe -->
                     <div class="page">
                         <br /><br />
-                        <center><h1>Informe de Estado de pagos</h1></center>                        
+                        <center><h1><ins>Informe de Estado de pagos</ins></h1></center>    
+                        <br/>                    
                         <table width="100%">
                         <thead>
                             <tr>
                                 <center>
                                 <td width="100%" style="text-align: left;" colspan="2"><h3>Cliente: <span t-esc="doc.cliente.name"/></h3></td>                                
                                 </center>
-                            </tr>
-                            <tr></tr>
+                            </tr>                            
                         </thead>
+                        <br/>
                         <tbody>
                             <t t-if="len(doc.facturas_in) == 0">
                                 <tr>
                                     <td>No hay facturas por vencer</td>
-                                </tr><tr></tr>
+                                </tr>
                             </t>
+                            <br/>
                             <t t-else="">
                                 <tr>
                                     <td>Facturas por vencer: <span t-esc="doc.pre_fac_vencido"/></td>                                
