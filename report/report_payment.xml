@@ -15,8 +15,8 @@
                     <!-- Contenido del informe -->
                     <div class="page">
                         <h1>Informe de Pagos</h1>
-                        <p>Cliente: <span t-field="doc.cliente"/></p>
-                        <p>Facturas Vencidas: <span t-field="doc.fac_vencido"/></p>
+                        <p>Cliente: <span t-esc="doc.cliente.name"/></p>
+                        <p>Facturas Vencidas: <span t-esc="doc.fac_vencido"/></p>
                         <!-- Agrega aquí los otros campos que quieras mostrar -->
                     </div>
                 </t>
