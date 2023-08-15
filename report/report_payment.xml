@@ -16,12 +16,12 @@
                     <!-- Contenido del informe -->
                     <div class="page">
                         <br /><br />
-                        <h1>Informe de Estado de pagos</h1>                        
+                        <center><h1>Informe de Estado de pagos</h1></center>                        
                         <table width="100%">
                         <thead>
                             <tr>
                                 <center>
-                                <td width="100%"><h2>Cliente: <span t-esc="doc.cliente.name"/></h2></td>                                
+                                <td width="100%" style="text-align: center;"><h2>Cliente: <span t-esc="doc.cliente.name"/></h2></td>                                
                                 </center>
                             </tr>
                         </thead>
