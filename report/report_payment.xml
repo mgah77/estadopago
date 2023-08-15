@@ -21,22 +21,31 @@
                         <thead>
                             <tr>
                                 <center>
-                                <td width="100%" style="text-align: center;"><h2>Cliente: <span t-esc="doc.cliente.name"/></h2></td>                                
+                                <td width="100%" style="text-align: left;" colspan="2"><h3>Cliente: <span t-esc="doc.cliente.name"/></h3></td>                                
                                 </center>
                             </tr>
+                            <tr></tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>Facturas por vencer: <span t-esc="doc.pre_fac_vencido"/></td>                                
-                            </tr>
-                                                        
-                            <t t-foreach="doc.facturas_in" t-as="factura">
+                            <t t-if="len(doc.facturas_in) == 0">
                                 <tr>
-                                    <td>Número de Factura: <span t-esc="factura.sii_document_number"/></td>
-                                    <td>Fecha de Vencimiento: <span t-esc="factura.date_due.strftime('%d-%b-%Y')"/></td>
-                                    <!-- Agrega más campos de la factura aquí -->
+                                    <td>No hay facturas por vencer</td>
+                                </tr><tr></tr>
+                            </t>
+                            <t t-else="">
+                                <tr>
+                                    <td>Facturas por vencer: <span t-esc="doc.pre_fac_vencido"/></td>                                
                                 </tr>
-                            </t> 
+                                <tr></tr>                          
+                                <t t-foreach="doc.facturas_in" t-as="factura">
+                                    <tr>
+                                        <td>Número de Factura: <span t-esc="factura.sii_document_number"/></td>
+                                        <td>Fecha de Vencimiento: <span t-esc="factura.date_due.strftime('%d-%b-%Y')"/></td>
+                                        <!-- Agrega más campos de la factura aquí -->
+                                    </tr>
+                                    <tr></tr>
+                                </t> 
+                            </t>
                             <t t-if="len(doc.facturas_out) == 0">
                                 <tr>
                                     <td>No hay facturas vencidas</td>
@@ -45,7 +54,8 @@
                             <t t-else="">
                                 <tr>
                                     <td>Facturas vencidas: <span t-esc="doc.fac_vencido"/></td>                                
-                                </tr>              
+                                </tr> 
+                                <tr></tr>             
                                 <t t-foreach="doc.facturas_out" t-as="factura">
                                     <tr>
                                         <td>Número de Factura: <span t-esc="factura.sii_document_number"/></td>
