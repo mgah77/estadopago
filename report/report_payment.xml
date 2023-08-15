@@ -45,7 +45,7 @@
                                     <tr>
                                         <td>Nº: <span t-esc="factura.sii_document_number"/></td>
                                         <td><span t-esc="factura.date_due.strftime('%d-%b-%Y')"/></td>
-                                        <td><span t-esc="factura.amount"/></td>
+                                        <td><span t-esc="factura.amount_total_signed"/></td>
 
                                         <!-- Agrega más campos de la factura aquí -->
                                     </tr>
