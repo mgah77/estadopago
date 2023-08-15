@@ -76,7 +76,7 @@
                                 </t>  
                             </t> 
                             <tr><td colspan="3"><hr/></td></tr>
-                            <tr><td></td><td><h3>Total Deuda</h3></td><td><h3>$<span t-esc="int(factura.totales)"/></h3></td></tr>                         
+                            <tr><td></td><td><h3>Total Deuda</h3></td><td><h3>$<span t-esc="int(doc.totales)"/></h3></td></tr>                         
                         </tbody>
                         </table>
                     </div>
