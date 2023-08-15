@@ -20,13 +20,15 @@
                         <p>Cliente: <span t-esc="doc.cliente.name"/></p>
                         <p>Facturas Vencidas: <span t-esc="doc.fac_vencido"/></p>
                         <!-- Agrega aquí los otros campos que quieras mostrar -->
-                        <t t-foreach="doc.facturas" t-as="factura">
+                        <ul>
+                        <t t-foreach="doc.facturas_out" t-as="factura">
                             <li>
                                 Número de Factura: <span t-esc="factura.number"/><br/>
                                 Fecha de Vencimiento: <span t-esc="factura.date_due"/><br/>
                                 <!-- Agrega más campos de la factura aquí -->
                             </li>
                         </t>
+                        </ul>
                     </div>
                 </t>
             </t>
