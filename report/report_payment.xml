@@ -22,148 +22,37 @@
                   <font size = "-2">
                     <thead>
                         <tr>
-                            <td style="font-size:small; width: 10% !important"><strong>Factura #</strong></td>
-                            <td style="font-size:small; width: 12% !important"><strong>Fecha</strong></td>
-                            <td id="td1"><strong>Monto</strong></td>
-                            <td id="td1"><strong>EFE</strong></td>
-                            <td id="td1"><strong>CHE</strong></td>
-                            <td id="td1"><strong>CRE</strong></td>
                             <td id="td1"><strong>TAR or DEB</strong></td>
                             <td id="td1"><strong>TRA or DEP</strong></td>
                             <td id="td1"><strong>RUT Cliente</strong></td>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr t-foreach="t_payments" t-as="payment">
-                            <td id="td1">
-                                <span t-esc="', '.join(payment.mapped('reconciled_invoice_ids.number'))"/>
-                            </td>
-                            <td id="td1">
-                                <span t-esc="', '.join(payment._get_date())"/>
-                            </td>
-                            <td id="td1">
-                                <span t-field="payment.amount"/>
-                            </td>
-                            <td id="td1">$
-                                <span t-esc="'{0:,.0f}'.format(int(payment._get_filter_amount('EFE')))"/>
-                            </td>
-                            <td id="td1">$
-                                 <span t-esc="'{0:,.0f}'.format(int(payment._get_filter_amount('CHE')))"/>
-                            </td>
-                            <td id="td1">$
-                                 <span t-esc="'{0:,.0f}'.format(int(payment._get_filter_amount('CRE')))"/>
-                            </td>
-                            <td id="td1">$
-                                 <span t-esc="'{0:,.0f}'.format(int(payment._get_filter_amount('TAR') or payment._get_filter_amount('DEB')))"/>
-                            </td>
-                            <td id="td1">$
-                                 <span t-esc="'{0:,.0f}'.format(int(payment._get_filter_amount('TRA') or payment._get_filter_amount('DEP')))"/>
-                            </td>
+                        <tr t-foreach="t_payments" t-as="payment">                            
                             <td id="td1">
                                 <span t-field="payment.partner_id.vat"/>
                             </td>
                         </tr>
                         <tr t-if="t_payments">
                             <td></td>
-                            <td id="td1">
-                                <strong>Subtotal</strong>
-                            </td>
-                            <td id="td1">
-                                <strong>$ <span t-esc="sum(t_payments.mapped('amount'))"/></strong>
-                            </td>
-                            <td id="td1">
-                                <strong>$ <span t-esc="t_payments._get_filter_total_amount('EFE')"/></strong>
-                            </td>
-                            <td id="td1">
-                                <strong>$ <span t-esc="t_payments._get_filter_total_amount('CHE')"/></strong>
-                            </td>
                             <td></td>
-                            <td></td>
-                            <td id="td1">
-                                <strong>$ <span t-esc="t_payments._get_filter_total_amount('TRA') or t_payments._get_filter_total_amount('TRA')"/></strong>
-                            </td>
+                            
                             <td></td>
                         </tr>
                         <tr></tr>
                         <tr></tr>
                         <tr t-foreach="y_payments" t-as="payment">
                             <td id="td1">
-                                <span t-esc="', '.join(payment.mapped('reconciled_invoice_ids.number'))"/>
-                            </td>
-                            <td id="td1">
-                                <span t-esc="', '.join(payment._get_date())"/>
-                            </td>
-                            <td id="td1">
-                                <span t-field="payment.amount"/>
-                            </td>
-                            <td id="td1">$
-                                <span t-esc="'{0:,.0f}'.format(int(payment._get_filter_amount('EFE')))"/>
-                            </td>
-                            <td id="td1">$
-                                 <span t-esc="'{0:,.0f}'.format(int(payment._get_filter_amount('CHE')))"/>
-                            </td>
-                            <td id="td1">$
-                                 <span t-esc="'{0:,.0f}'.format(int(payment._get_filter_amount('CRE')))"/>
-                            </td>
-                            <td id="td1">$
-                                 <span t-esc="'{0:,.0f}'.format(int(payment._get_filter_amount('TAR') or payment._get_filter_amount('DEB')))"/>
-                            </td>
-                            <td id="td1">$
-                                 <span t-esc="'{0:,.0f}'.format(int(payment._get_filter_amount('TRA') or payment._get_filter_amount('DEP')))"/>
-                            </td>
-                            <td id="td1">
                                 <span t-field="payment.partner_id.vat"/>
                             </td>
                         </tr>
-                        <tr t-if="y_payments">
-                            <td></td>
-                            <td id="td1">
-                                <strong>Subtotal</strong>
-                            </td>
-                            <td id="td1">
-                                <strong>$ <span t-esc="'{0:,.0f}'.format(int(sum(y_payments.mapped('amount'))))"/></strong>
-                            </td>
-                            <td id="td1">
-                                <strong>$ <span t-esc="'{0:,.0f}'.format(int(y_payments._get_filter_total_amount('EFE')))"/></strong>
-                            </td>
-                            <td id="td1">
-                                <strong>$ <span t-esc="'{0:,.0f}'.format(int(y_payments._get_filter_total_amount('CHE')))"/></strong>
-                            </td>
-                            <td id="td1">
-                                <strong>$ <span t-esc="'{0:,.0f}'.format(int(y_payments._get_filter_total_amount('CHE')))"/></strong>
-                            </td>
-                            <td id="td1">
-                                <strong>$ <span t-esc="'{0:,.0f}'.format(int(y_payments._get_filter_total_amount('TAR') or y_payments._get_filter_total_amount('DEB')))"/></strong>
-                            </td>
-                            <td id="td1">
-                                <strong>$ <span t-esc="'{0:,.0f}'.format(int(y_payments._get_filter_total_amount('TRA') or y_payments._get_filter_total_amount('TRA')))"/></strong>
-                            </td>
-                            <td></td>
-                        </tr>
+                        
                         <tr/>
                         <tr/>
                         <tr>
                             <td></td>
                             <td id="td1">
                                 <strong>Total</strong>
-                            </td>
-                            <td id="td1">
-                                <strong>$ <span t-esc="'{0:,.0f}'.format(int(sum(t_payments.mapped('amount')) + sum(y_payments.mapped('amount'))))"/></strong>
-                            </td>
-                            <td id="td1">
-                                <strong>$ <span t-esc="'{0:,.0f}'.format(int(t_payments._get_filter_total_amount('EFE') + y_payments._get_filter_total_amount('EFE')))"/></strong>
-                            </td>
-                            <td id="td1">
-                                <strong>$ <span t-esc="'{0:,.0f}'.format(int(t_payments._get_filter_total_amount('CHE') + y_payments._get_filter_total_amount('CHE')))"/></strong>
-                            </td>
-                            <td id="td1">
-                                <strong>$ <span t-esc="'{0:,.0f}'.format(int(t_payments._get_filter_total_amount('CRE') + y_payments._get_filter_total_amount('CRE')))"/></strong>
-                            </td>
-                            <td id="td1">
-                                <strong>$ <span t-esc="'{0:,.0f}'.format(int((t_payments._get_filter_total_amount('TAR') or t_payments._get_filter_total_amount('DEB')) + (y_payments._get_filter_total_amount('TAR') or y_payments._get_filter_total_amount('DEB'))))"/></strong>
-                            </td>
-                            <td id="td1">
-                                <strong>$ <span t-esc="'{0:,.0f}'.format(int((t_payments._get_filter_total_amount('TRA') or t_payments._get_filter_total_amount('DEP')) + (y_payments._get_filter_total_amount('TRA') or y_payments._get_filter_total_amount('DEP'))))"/></strong>
                             </td>
                             <td></td>
                         </tr>
@@ -173,73 +62,7 @@
                 <div class="clearfix"/>
                 <br/>
                 <br/>
-                <h4>Resumen</h4>
-                <div class="row">
-                    <div class="col-6">
-                        <table class="table table-sm">
-                            <tbody>
-                              <font size = "-1">
-                                <tr>
-                                    <td>Efectivo</td>
-                                    <td>$
-                                        <span t-esc="'{0:,.0f}'.format(int(t_payments._get_filter_total_amount('EFE') + y_payments._get_filter_total_amount('EFE')))"/>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Cheque</td>
-                                    <td>$
-                                        <span t-esc="'{0:,.0f}'.format(int(t_payments._get_filter_total_amount('CHE') + y_payments._get_filter_total_amount('CHE')))"/>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Credito</td>
-                                    <td>$
-                                        <span t-esc="'{0:,.0f}'.format(int(t_payments._get_filter_total_amount('CRE') + y_payments._get_filter_total_amount('CRE')))"/>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Tarjeta</td>
-                                    <td>$
-                                        <span t-esc="'{0:,.0f}'.format(int(t_payments._get_filter_total_amount('TAR') + y_payments._get_filter_total_amount('TAR')))"/>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Debito</td>
-                                    <td>$
-                                        <span t-esc="'{0:,.0f}'.format(int(t_payments._get_filter_total_amount('DEB') + y_payments._get_filter_total_amount('DEB')))"/>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Transferencia</td>
-                                    <td>$
-                                        <span t-esc="'{0:,.0f}'.format(int(t_payments._get_filter_total_amount('TRA') + y_payments._get_filter_total_amount('TRA')))"/>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Deposito</td>
-                                    <td>$
-                                        <span t-esc="'{0:,.0f}'.format(int(t_payments._get_filter_total_amount('DEP') + y_payments._get_filter_total_amount('DEP')))"/>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th>Total pagos del dia</th>
-                                    <td>
-                                        <strong>$<span t-esc="'{0:,.0f}'.format(int(sum(payments.mapped('amount'))))"/></strong>
-                                    </td>
-                                </tr>
-                                </font>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="col-6">
-                      <font size = "+1">
-                        <b>
-                        Cobranzas o abonos: $ <span t-esc="'{0:,.0f}'.format(int(sum(y_payments.mapped('amount'))))"/><br/><br/>
-                        Ventas del dia: $ <span t-esc="'{0:,.0f}'.format(int(sum(t_payments.mapped('amount'))))"/>
-                      </b>
-                      </font>
-                    </div>
-                </div>
+                
             </div>
         </t>
     </template>
