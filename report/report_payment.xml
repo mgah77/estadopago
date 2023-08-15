@@ -21,7 +21,7 @@
                         <thead>
                             <tr>
                                 <center>
-                                <td><h2>Cliente: <span t-esc="doc.cliente.name"/></h2></td>                                
+                                <td width="100%"><h2>Cliente: <span t-esc="doc.cliente.name"/></h2></td>                                
                                 </center>
                             </tr>
                         </thead>
