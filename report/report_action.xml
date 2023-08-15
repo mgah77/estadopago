@@ -6,8 +6,8 @@
         model="payment.wizard"
         string="Reporte de Caja"
         report_type="qweb-pdf"
-        name="estadopago.estado_pago"
-        file="estadopago.estado_pago"
+        name="estadopago.report_estado_pago"
+        file="estadopago.report_estado_pago"
         menu="False"
     />
 </odoo>
