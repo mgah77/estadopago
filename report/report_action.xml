@@ -1,13 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <!-- QWeb Reports -->
-    <report
-        id="action_payment_report"
-        model="payment.wizard"
-        string="Reporte de Caja"
-        report_type="qweb-pdf"
-        name="estadopago.report_estado_pago"
-        file="estadopago.report_estado_pago"
-        menu="False"
-    />
+    
 </odoo>

@@ -14,13 +14,8 @@ class PaymentWizard(models.Model):
     totales = fields.Float(string="Total Deuda", compute='_compute_cantidad_vencida', digits=(16, 0))
 
     def action_print_report(self):
-        data = {}
-        #data['form'] = v
-        data['ids'] = self.env.context.get('active_ids', [])
-        data['model'] = self.env.context.get('active_model', 'payment.wizard')
-        data['cliente'] = self.cliente
-        data['fac_vencido'] = self.cliente
-        return self.env.ref('estadopago.action_payment_report').report_action(self, data=data)
+        return self.env['ir.actions.report'].search([('report_name', '=', 'estadopago.report_estado_pago')], limit=1).report_action(self)
+
 
     @api.depends('cliente')
     def _compute_cantidad_vencida(self):
@@ -47,3 +42,4 @@ class PaymentWizard(models.Model):
                 record.pre_vencido = 0
                 record.totales = 0
         return
+
