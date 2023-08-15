@@ -39,7 +39,7 @@
                                 <tr>
                                     <td>No hay facturas vencidas</td>
                                 </tr>
-                            <t t-else="">
+                            </t>
                             <tr>
                                 <td>Facturas vencidas: <span t-esc="doc.fac_vencido"/></td>                                
                             </tr>              
