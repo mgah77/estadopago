@@ -46,7 +46,7 @@
                                     <tr>
                                         <td>Nº: <span t-esc="factura.sii_document_number"/></td>
                                         <td><span t-esc="factura.date_due.strftime('%d-%b-%Y')"/></td>
-                                        <td>$ <span t-esc="int(factura.amount_total_signed)"/></td>
+                                        <td>$ <span t-esc="'{:.0f}'.format(factura.amount_total_signed)"/></td>
 
                                         <!-- Agrega más campos de la factura aquí -->
                                     </tr>
@@ -70,13 +70,13 @@
                                     <tr>
                                         <td>Nº: <span t-esc="factura.sii_document_number"/></td>
                                         <td> <span t-esc="factura.date_due.strftime('%d-%b-%Y')"/></td>
-                                        <td>$ <span t-esc="int(factura.amount_total_signed)"/></td>
+                                        <td>$ <span t-esc="'{:.0f}'.format(factura.amount_total_signed)"/></td>
                                         <!-- Agrega más campos de la factura aquí -->
                                     </tr>
                                 </t>  
                             </t> 
                             <tr><td colspan="3"><hr/></td></tr>
-                            <tr><td></td><td><h3>Total Deuda</h3></td><td><h3>$<span t-esc="int(doc.totales)"/></h3></td></tr>                         
+                            <tr><td></td><td><h3>Total Deuda</h3></td><td><h3>$<span t-esc="'{:.0f}'.format(doc.totales)"/></h3></td></tr>                         
                         </tbody>
                         </table>
                     </div>
