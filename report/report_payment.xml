@@ -46,7 +46,7 @@
                                     <tr>
                                         <td>Nº: <span t-esc="factura.sii_document_number"/></td>
                                         <td><span t-esc="factura.date_due.strftime('%d-%b-%Y')"/></td>
-                                        <td>$ <span t-esc="'{:.0f}'.format(factura.amount_total_signed)"/></td>
+                                        <td>$ <span t-esc="'{:.0f}'.format(factura.residual_signed)"/></td>
 
                                         <!-- Agrega más campos de la factura aquí -->
                                     </tr>
@@ -70,7 +70,7 @@
                                     <tr>
                                         <td>Nº: <span t-esc="factura.sii_document_number"/></td>
                                         <td> <span t-esc="factura.date_due.strftime('%d-%b-%Y')"/></td>
-                                        <td>$ <span t-esc="'{:.0f}'.format(factura.amount_total_signed)"/></td>
+                                        <td>$ <span t-esc="'{:.0f}'.format(factura.residual_signed)"/></td>
                                         <!-- Agrega más campos de la factura aquí -->
                                     </tr>
                                 </t>  
